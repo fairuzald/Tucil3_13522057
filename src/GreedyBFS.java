@@ -1,3 +1,4 @@
+package src;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -46,7 +47,7 @@ public class GreedyBFS {
                 sb.setCharAt(i, c);
 
                 String newWord = sb.toString();
-                
+
                 if(!Dictionary.isValidWord(newWord)) continue;
 
                 if(visited.contains(newWord)) continue;

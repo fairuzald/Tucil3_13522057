@@ -1,0 +1,15 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "mvn clean package",
+    "install": "mvn clean install",
+    "start": "mvn spring-boot:run",
+    "dev": "mvn spring-boot:run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

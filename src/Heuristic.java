@@ -1,3 +1,4 @@
+package src;
 
 public class Heuristic {
 	public static int calculateDistance(String startWord, String targetWord) {

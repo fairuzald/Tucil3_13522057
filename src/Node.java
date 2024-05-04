@@ -1,3 +1,4 @@
+package src;
 public class Node implements Comparable<Node> {
     private int cost;
     private String word;
