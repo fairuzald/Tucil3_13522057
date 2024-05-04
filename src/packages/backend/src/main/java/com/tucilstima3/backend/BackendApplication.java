@@ -9,7 +9,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 public class BackendApplication {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
+        Dictionary.loadDictionary("dictionary.txt");
         SpringApplication.run(BackendApplication.class, args);
     }
 
