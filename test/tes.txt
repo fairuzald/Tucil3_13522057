@@ -1,0 +1,15 @@
+=======RESULT=======
+Start Word: black
+End Word: green
+Time: 5746 ms
+Node visited: 348
+Path Length: 8
+Path: 
+black
+blank
+brank
+brans
+brens
+brees
+grees
+green

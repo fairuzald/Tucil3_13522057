@@ -1,0 +1,11 @@
+===========RESULT===========
+Algorithm: UCS
+Start Word: east
+End Word: west
+Time: 314 ms
+Node visited: 29
+Path Length: 3
+Path: 
+east
+wast
+west
