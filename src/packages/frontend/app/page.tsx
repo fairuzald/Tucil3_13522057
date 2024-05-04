@@ -1,6 +1,23 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-export default function Home() {
+async function getTestContent() {
+  const response = await fetch("http://localhost:8080/greeting");
+  const data = await response.json();
+  return data;
+}
+
+export default  function Home() {
+  const [content, setContent] = useState(null);
+  useEffect(() => {
+    getTestContent().then((data) => setContent(data));
+  }
+  , []);
+
+  console.log(content);
+
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
