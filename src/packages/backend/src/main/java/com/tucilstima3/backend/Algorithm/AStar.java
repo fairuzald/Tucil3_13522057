@@ -13,7 +13,8 @@ public class AStar implements PathFindingAlgorithm {
     public PathFindingResult findPath(String startWord, String endWord, Dictionary dictionary) {
         HashSet<String> visited = new HashSet<>();
         PriorityQueue<Node> queue = new PriorityQueue<>();
-        queue.add(new Node(startWord));
+        queue.add(new Node(startWord, Heuristic.getDistance(startWord, endWord)));
+
         int counter = 0;
 
         while (!queue.isEmpty()) {
