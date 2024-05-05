@@ -1,4 +1,4 @@
-package com.tucilstima3.backend.Utils;
+package com.tucilstima3.backend.Model;
 
 public class PathRequest {
     private String startWord;
