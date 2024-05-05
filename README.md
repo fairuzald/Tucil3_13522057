@@ -108,4 +108,12 @@ make
 
 ## Project Status
 
-Project is complete
+| No. | Poin | Ya |
+|-----|------|---------|
+| 1.  | Program berhasil dijalankan. | &#9745; |
+| 2.  | Program dapat menemukan rangkaian kata dari start word ke end word sesuai aturan permainan dengan algoritma UCS | &#9745; |
+| 3.  | Solusi yang diberikan pada algoritma UCS optimal | &#9745; |
+| 4.  | Program dapat menemukan rangkaian kata dari start word ke end word sesuai aturan permainan dengan algoritma Greedy Best First Search | &#9745; |
+| 5.  | Program dapat menemukan rangkaian kata dari start word ke end word sesuai aturan permainan dengan algoritma A* | &#9745; |
+| 6.  | Solusi yang diberikan pada algoritma A* optimal | &#9745; |
+| 7.  | [Bonus]: Program memiliki tampilan GUI | &#9745; |
