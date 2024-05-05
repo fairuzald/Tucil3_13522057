@@ -21,7 +21,7 @@ public class Dictionary {
 	}
 
     public boolean isValidWord(String word) {
-        return this.dictionary.contains(word.toLowerCase());
+        return this.dictionary.contains(word);
     }
 
 }

@@ -22,6 +22,7 @@ function GridSolver({ path }: { path: string[] }) {
     return (
         path && path.length > 0 && (
             <div className="flex flex-col gap-1">
+                <p className="text-theme-4 text-lg lg:text-2xl text-center fon-bold">Paths sequences:</p>
                 {path.map((word, i) => (
                     <GridWrapper key={i}>{word}</GridWrapper>
                 ))}
