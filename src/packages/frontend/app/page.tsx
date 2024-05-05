@@ -194,47 +194,47 @@ ${path.map((word, index) => `${index + 1}. ${word}`).join("\n")}\n`;
       </section>
 
       {/* Result */}
-      <section className="flex flex-col items-center justify-center gap-5">
-        <h4 className="text-white text-center text-lg lg:text-2xl max-w-[1000px]">
-          {isLoading ? "Loading..." : (
-            <>
-              Path solution from
-              <span className="text-theme-4 font-semibold">
-                {" " + startWord + " "}
-              </span>
-              to
-              <span className="text-theme-4 font-semibold">
-                {" " + endWord + " "}
-              </span>
-              {(!path || path.length <= 0) && "not"} found in{" "}
-              <span className="text-theme-4 font-semibold">
-                {runtime}ms
-              </span>{" "}
-              with{" "}
-              <span className="text-theme-4 font-semibold">
-                {count}
-              </span>{" "}
-              visited nodes count
-              {" "} and through{" "}
-              <span className="text-theme-4 font-semibold">
-                {path.length - 1 > 1 ? path.length - 1 + " words" : path.length == 1 ? "1 word" : ""}
-              </span>
-              {" "}
-              using{" "}
-              <span className="text-theme-4 font-semibold capitalize">
-                {selectedAlgorithm}
-              </span>{" "}
-            </>
+      {path && path.length > 0 && selectedAlgorithm && endWord && startWord && count > 0 && (
+        <section className="flex flex-col items-center justify-center gap-5">
+          <h4 className="text-white text-center text-lg lg:text-2xl max-w-[1000px]">
+            {isLoading ? "Loading..." : (
+              <>
+                Path solution from
+                <span className="text-theme-4 font-semibold">
+                  {" " + startWord + " "}
+                </span>
+                to
+                <span className="text-theme-4 font-semibold">
+                  {" " + endWord + " "}
+                </span>
+                {(!path || path.length <= 0) && "not"} found in{" "}
+                <span className="text-theme-4 font-semibold">
+                  {runtime}ms
+                </span>{" "}
+                with{" "}
+                <span className="text-theme-4 font-semibold">
+                  {count}
+                </span>{" "}
+                visited nodes count
+                {" "} and through{" "}
+                <span className="text-theme-4 font-semibold">
+                  {path.length - 1 > 1 ? path.length - 1 + " words" : path.length == 1 ? "1 word" : ""}
+                </span>
+                {" "}
+                using{" "}
+                <span className="text-theme-4 font-semibold capitalize">
+                  {selectedAlgorithm}
+                </span>{" "}
+              </>
+            )}
+          </h4>
+          {count > 0 && <GridSolver path={path} />}
+
+          {path.length > 0 && startWord && endWord && runtime > 0 && count > 0 && algorithm && (
+            <Button onClick={onSave}>Save</Button>
           )}
-        </h4>
-        {count > 0 && <GridSolver path={path} />}
-
-        {path.length > 0 && startWord && endWord && runtime > 0 && count > 0 && algorithm && (
-          <Button onClick={onSave}>Save</Button>
-        )}
-      </section>
-
-
+        </section>
+      )}
     </main>
   );
 }
