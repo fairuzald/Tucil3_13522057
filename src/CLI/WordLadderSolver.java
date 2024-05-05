@@ -31,8 +31,14 @@ public class WordLadderSolver {
             System.out.println("File dictionary harus berformat .txt");
             System.exit(0);
         }
+        Dictionary dictionary = null;
+        try {
+			dictionary = new Dictionary(dictionaryFile);
+		} catch (Exception e) {
+			System.err.println("Error when reading file " + dictionaryFile + " for dictionary");
+			System.exit(1);
+		}
 
-        Dictionary.loadDictionary(dictionaryFile);
 
         try (Scanner scanner = new Scanner(System.in)) {
             String algorithm;
@@ -42,7 +48,7 @@ public class WordLadderSolver {
             // Get and validate start word
             System.out.print("Masukkan start word: ");
             startWord = scanner.nextLine().toLowerCase();
-            while (!Dictionary.isValidWord(startWord)) {
+            while (!dictionary.isValidWord(startWord)) {
                 System.out.println("Start word bukan kata bahasa Inggris yang valid.");
                 System.out.print("Masukkan start word: ");
                 startWord = scanner.nextLine().toLowerCase();
@@ -51,7 +57,7 @@ public class WordLadderSolver {
             // Get and validate end word
             System.out.print("Masukkan end word: ");
             endWord = scanner.nextLine().toLowerCase();
-            while (!Dictionary.isValidWord(endWord)) {
+            while (!dictionary.isValidWord(endWord)) {
                 System.out.println("End word bukan kata bahasa Inggris yang valid.");
                 System.out.print("Masukkan end word: ");
                 endWord = scanner.nextLine().toLowerCase();
@@ -85,7 +91,7 @@ public class WordLadderSolver {
                 long startTime = System.nanoTime();
 
                 // Find path
-                PathFindingResult res = findPath(solver, startWord, endWord);
+                PathFindingResult res = findPath(solver, startWord, endWord, dictionary);
 
                 long endTime = System.nanoTime();
                 double totalTime = (endTime - startTime) / 1e6;
@@ -152,10 +158,10 @@ public class WordLadderSolver {
         }
     }
 
-    private static PathFindingResult findPath(PathFindingAlgorithm solver, String startWord, String endWord)
+    private static PathFindingResult findPath(PathFindingAlgorithm solver, String startWord, String endWord, Dictionary dictionary)
             throws NoSolutionFoundException {
         if (solver != null) {
-            return solver.findPath(startWord, endWord);
+            return solver.findPath(startWord, endWord, dictionary);
         } else {
             throw new NoSolutionFoundException("Solver tidak valid.");
         }

@@ -1,4 +1,4 @@
-package com.tucilstima3.backend;
+package com.tucilstima3.backend.Utils;
 import java.util.ArrayList;
 
 public class Node implements Comparable<Node> {

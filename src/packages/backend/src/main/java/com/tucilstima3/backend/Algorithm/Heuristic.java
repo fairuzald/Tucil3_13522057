@@ -1,4 +1,5 @@
-package com.tucilstima3.backend;
+package com.tucilstima3.backend.Algorithm;
+
 public class Heuristic {
 	public static int getDistance(String startWord, String targetWord) {
 		// Make sure the length of the two words are the same

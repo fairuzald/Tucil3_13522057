@@ -1,4 +1,5 @@
 package src.CLI.Algorithms;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -6,9 +7,10 @@ import java.util.PriorityQueue;
 
 import src.CLI.Utils.Dictionary;
 import src.CLI.Utils.Node;
-public class AStar implements PathFindingAlgorithm {
 
-    public PathFindingResult findPath(String startWord, String endWord) {
+public class AStar implements PathFindingAlgorithm {
+    @Override
+    public PathFindingResult findPath(String startWord, String endWord, Dictionary dictionary) {
         HashSet<String> visited = new HashSet<>();
         PriorityQueue<Node> queue = new PriorityQueue<>();
         queue.add(new Node(startWord));
@@ -37,7 +39,7 @@ public class AStar implements PathFindingAlgorithm {
                         if (c != currentWord.charAt(i)) {
                             String neighbor = currentWord.substring(0, i) + c + currentWord.substring(i + 1);
                             // Append the neighbor to the list if it is a valid word and has not been
-                            if (Dictionary.isValidWord(neighbor) && !visited.contains(neighbor)) {
+                            if (dictionary.isValidWord(neighbor) && !visited.contains(neighbor)) {
                                 neighbors.add(neighbor);
                             }
                         }

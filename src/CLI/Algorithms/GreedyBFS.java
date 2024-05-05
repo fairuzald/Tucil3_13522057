@@ -8,7 +8,7 @@ import src.CLI.Utils.Node;
 public class GreedyBFS implements PathFindingAlgorithm {
 
     @Override
-    public PathFindingResult findPath(String startWord, String endWord) {
+        public PathFindingResult findPath(String startWord, String endWord, Dictionary dictionary){
         Node currentNode = new Node(startWord, Heuristic.getDistance(startWord, endWord));
         HashSet<String> visited = new HashSet<>();
         int counter = 0;
@@ -33,7 +33,7 @@ public class GreedyBFS implements PathFindingAlgorithm {
                         // Replace the character at index i with c
                         String newWord = currentWord.substring(0, i) + c + currentWord.substring(i + 1);
                         // Check if the new word is a valid English word and has not been visited
-                        if (Dictionary.isValidWord(newWord) && !visited.contains(newWord)) {
+                        if (dictionary.isValidWord(newWord) && !visited.contains(newWord)) {
                             visited.add(newWord);
                             // Calculate the cost of the new word
                             int cost = Heuristic.getDistance(newWord, endWord);

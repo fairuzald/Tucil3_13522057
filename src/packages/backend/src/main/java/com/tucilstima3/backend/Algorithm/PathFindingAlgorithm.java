@@ -1,20 +1,20 @@
-package src.CLI.Algorithms;
+package com.tucilstima3.backend.Algorithm;
 
-import java.util.List;
+import java.util.ArrayList;
 
-import src.CLI.Utils.Dictionary;
+import com.tucilstima3.backend.Utils.Dictionary;
 
 public interface PathFindingAlgorithm {
     public class PathFindingResult {
-        private List<String> path;
+        private ArrayList<String> path;
         private int counter;
 
-        public PathFindingResult(List<String> path, int counter) {
+        public PathFindingResult(ArrayList<String> path, int counter) {
             this.path = path;
             this.counter = counter;
         }
 
-        public List<String> getPath() {
+        public ArrayList<String> getPath() {
             return path;
         }
 

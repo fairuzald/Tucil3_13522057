@@ -1,6 +1,11 @@
-package com.tucilstima3.backend;
+package com.tucilstima3.backend.Service;
 
 import org.springframework.stereotype.Service;
+
+import com.tucilstima3.backend.Algorithm.AStar;
+import com.tucilstima3.backend.Algorithm.GreedyBFS;
+import com.tucilstima3.backend.Algorithm.PathFindingAlgorithm;
+import com.tucilstima3.backend.Algorithm.UCS;
 
 @Service
 public class PathFindingService {

@@ -1,16 +1,18 @@
-package com.tucilstima3.backend;
+package com.tucilstima3.backend.Utils;
 
 import java.util.ArrayList;
 
 public class PathResponse {
     private ArrayList<String> path;
-    private long runtime;
+    private double runtime;
     private int counter;
+    private String message;
 
-    public PathResponse(ArrayList<String> path, long runtime, int counter) {
+    public PathResponse(ArrayList<String> path, double runtime, int counter, String message) {
         this.path = path;
         this.runtime = runtime;
         this.counter = counter;
+        this.message = message;
     }
 
     public ArrayList<String> getPath() {
@@ -21,11 +23,11 @@ public class PathResponse {
         this.path = path;
     }
 
-    public long getRuntime() {
+    public double getRuntime() {
         return runtime;
     }
 
-    public void setRuntime(long runtime) {
+    public void setRuntime(double runtime) {
         this.runtime = runtime;
     }
 
@@ -35,5 +37,9 @@ public class PathResponse {
 
     public void setCounter(int counter) {
         this.counter = counter;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

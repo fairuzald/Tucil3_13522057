@@ -1,12 +1,12 @@
-package src.CLI.Algorithms;
+package com.tucilstima3.backend.Algorithm;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 
-import src.CLI.Utils.Dictionary;
-import src.CLI.Utils.Node;
+import com.tucilstima3.backend.Utils.Dictionary;
+import com.tucilstima3.backend.Utils.Node;
 
 public class UCS implements PathFindingAlgorithm {
     @Override

@@ -1,13 +1,17 @@
-package com.tucilstima3.backend;
+package com.tucilstima3.backend.Algorithm;
 
 import java.util.HashSet;
 
+import com.tucilstima3.backend.Utils.Dictionary;
+import com.tucilstima3.backend.Utils.Node;
+
 public class GreedyBFS implements PathFindingAlgorithm {
     @Override
-    public Object[] findPath(String startWord, String endWord) {
+    public PathFindingResult findPath(String startWord, String endWord, Dictionary dictionary) {
         Node currentNode = new Node(startWord, Heuristic.getDistance(startWord, endWord));
         HashSet<String> visited = new HashSet<>();
         int counter = 0;
+
         // Search until the end word is found
         while (currentNode != null) {
             counter++;
@@ -15,8 +19,7 @@ public class GreedyBFS implements PathFindingAlgorithm {
 
             // If the current word is the end word, return the path
             if (currentWord.equalsIgnoreCase(endWord)) {
-               
-                return new Object[]{Node.buildPath(currentNode), counter};
+                return new PathFindingResult(Node.buildPath(currentNode), counter);
             }
 
             int minimumCost = Integer.MAX_VALUE;
@@ -29,11 +32,11 @@ public class GreedyBFS implements PathFindingAlgorithm {
                         // Replace the character at index i with c
                         String newWord = currentWord.substring(0, i) + c + currentWord.substring(i + 1);
                         // Check if the new word is a valid English word and has not been visited
-                        if (Dictionary.isValidWord(newWord) && !visited.contains(newWord)) {
+                        if (dictionary.isValidWord(newWord) && !visited.contains(newWord)) {
                             visited.add(newWord);
                             // Calculate the cost of the new word
                             int cost = Heuristic.getDistance(newWord, endWord);
-                            if (cost < minimumCost) {
+                            if (cost <= minimumCost) {
                                 minimumCost = cost;
                                 greedyWord = newWord;
                             }
@@ -43,14 +46,15 @@ public class GreedyBFS implements PathFindingAlgorithm {
             }
 
             if (greedyWord != null) {
-                Node neighborNode = new Node(greedyWord, Heuristic.getDistance(greedyWord, endWord), currentNode);
+                Node neighborNode = new Node(greedyWord, minimumCost, currentNode);
                 currentNode = neighborNode;
             } else {
                 currentNode = null;
                 break;
             }
         }
-    return new Object[]{null, counter};
-    }
 
+        return new PathFindingResult(null, counter);
+
+    }
 }
