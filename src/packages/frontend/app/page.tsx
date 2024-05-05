@@ -4,16 +4,28 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { makeApiRequest } from "@/lib/helper";
 import { FormEventHandler, useState } from "react";
 import toast from "react-hot-toast";
+import GridSolver from "./grid";
 
+
+type ApiResponse = {
+  message: string,
+  path: string[],
+  runtime: number;
+  counter: number;
+}
 
 export default function Home() {
   const [algorithm, setAlgorithm] = useState("ucs");
   const [startWord, setStartWord] = useState("");
   const [endWord, setEndWord] = useState("");
-
-  const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+  const [path, setPath] = useState<string[]>([]);
+  const [runtime, setRuntime] = useState(0);
+  const [count, setCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
     if (!startWord || !endWord || startWord.length !== endWord.length || !algorithm) {
@@ -24,7 +36,41 @@ export default function Home() {
       return;
     }
 
-    console.log(startWord, endWord, algorithm);
+    try {
+      setIsLoading(true);
+      const singleUrl = "/algorithm?method=" + algorithm
+      await makeApiRequest({
+        method: "POST",
+        endpoint: singleUrl,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          startWord,
+          endWord,
+        }),
+        loadingMessage:
+          "Finding solution using " +
+          algorithm +
+          " algorithm...",
+        successMessage: "Process completed successfully!",
+        onSuccess: async (data: ApiResponse) => {
+          const result = await data;
+          setCount(result.counter);
+          setPath(result.path);
+          setRuntime(result.runtime);
+        }
+      })
+
+      // Handle additional logic based on the response if needed
+    } catch (err) {
+      console.error(err);
+      const errMsg =
+        err instanceof Error ? err.message : "Something went wrong";
+      toast.error(errMsg);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -73,8 +119,8 @@ export default function Home() {
             </div>
             {/* GBFS */}
             <div className="flex items-center space-x-2">
-              <RadioGroupItem value="gbfs" id="gbfs" />
-              <Label htmlFor="gbfs">Greedy Best First Search</Label>
+              <RadioGroupItem value="greedy" id="greedy" />
+              <Label htmlFor="greedy">Greedy Best First Search</Label>
             </div>
             {/* Astar */}
             <div className="flex items-center space-x-2">
@@ -87,6 +133,12 @@ export default function Home() {
         {/* Submit */}
         <Button type="submit" variant="default" size="default">Solve</Button>
       </form>
+
+      {/* Result */}
+      <section>
+        <h4 className="text-white">{runtime}</h4>
+        <GridSolver path={path} />
+      </section>
     </main>
   );
 }
