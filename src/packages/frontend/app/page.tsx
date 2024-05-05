@@ -25,7 +25,9 @@ export default function Home() {
   const [runtime, setRuntime] = useState(0);
   const [count, setCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedAlgorithm, setSelectedAlgorithm] = useState<string>("ucs");
+  const [selectedStartWord, setSelectedStartWord] = useState<string>("");
+  const [selectedEndWord, setSelectedEndWord] = useState<string>("");
+  const [selectedAlgorithm, setSelectedAlgorithm] = useState<string>("Uniform Cost Search");
 
   // Function to handle form submission
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
@@ -62,6 +64,8 @@ export default function Home() {
           setCount(result.counter);
           setPath(result.path ? result.path : []);
           setRuntime(result.runtime);
+          setSelectedStartWord(startWord);
+          setSelectedEndWord(endWord);
           algorithm === "ucs" ? setSelectedAlgorithm("Uniform Cost Search") : algorithm === "greedy" ? setSelectedAlgorithm("Greedy Best First Search") : setSelectedAlgorithm("A*");
         }
       })
@@ -194,18 +198,18 @@ ${path.map((word, index) => `${index + 1}. ${word}`).join("\n")}\n`;
       </section>
 
       {/* Result */}
-      {path && path.length > 0 && selectedAlgorithm && endWord && startWord && count > 0 && (
+      {(path && path.length > 0 || selectedAlgorithm==="Greedy Best First Search") && selectedAlgorithm && selectedEndWord && selectedStartWord && count > 0 && (
         <section className="flex flex-col items-center justify-center gap-5">
           <h4 className="text-white text-center text-lg lg:text-2xl max-w-[1000px]">
             {isLoading ? "Loading..." : (
               <>
                 Path solution from
                 <span className="text-theme-4 font-semibold">
-                  {" " + startWord + " "}
+                  {" " + selectedStartWord + " "}
                 </span>
                 to
                 <span className="text-theme-4 font-semibold">
-                  {" " + endWord + " "}
+                  {" " + selectedEndWord + " "}
                 </span>
                 {(!path || path.length <= 0) && "not"} found in{" "}
                 <span className="text-theme-4 font-semibold">

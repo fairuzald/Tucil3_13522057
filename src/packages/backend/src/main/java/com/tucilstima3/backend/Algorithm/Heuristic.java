@@ -10,7 +10,7 @@ public class Heuristic {
 		int diffCount = 0;
 		for (int i = 0; i < startWord.length(); ++i) {
 			if (startWord.charAt(i) != targetWord.charAt(i))
-				diffCount += 1;
+				diffCount++;
 		}
 
 		return diffCount;

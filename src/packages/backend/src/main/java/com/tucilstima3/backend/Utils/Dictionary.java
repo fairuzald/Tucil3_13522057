@@ -8,8 +8,8 @@ public class Dictionary {
     private HashSet<String> dictionary = new HashSet<>();
 
     public Dictionary(String filepath) throws Exception {
-		FileReader fileReader = new FileReader(filepath);
-		BufferedReader reader = new BufferedReader(fileReader);
+		FileReader fr= new FileReader(filepath);
+		BufferedReader reader = new BufferedReader(fr);
 
 		String word = reader.readLine();
 		while (word != null) {
@@ -17,7 +17,7 @@ public class Dictionary {
 			word = reader.readLine();
 		}
 
-		fileReader.close();
+		fr.close();
 	}
 
     public boolean isValidWord(String word) {
