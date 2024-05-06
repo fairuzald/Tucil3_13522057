@@ -56,6 +56,10 @@ Before starting the development process, ensure that your machine meets the foll
 - [Java](https://www.java.com/en/) (JDK LTS version): Java Development Kit is required for compiling and running the backend server.
 - [Maven](https://maven.apache.org/) (LTS version): Maven is a build automation tool used for managing Java projects and their dependencies.
 
+Atau ikuti
+![Screenshot](./screenshot.png)
+
+
 ### 1. Clone the Repository
 
 ```bash
