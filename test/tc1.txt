@@ -1,0 +1,37 @@
+
+===========RESULT===========
+Start Word: eat
+End Word: let
+Algorithm: Uniform Cost Search
+Runtime: 1.2377ms
+Visited Nodes: 107
+Path:
+1. eat
+2. lat
+3. let
+
+
+===========RESULT===========
+Start Word: eat
+End Word: let
+Algorithm: Greedy Best First Search
+Runtime: 0.0851ms
+Visited Nodes: 3
+Path:
+1. eat
+2. lat
+3. let
+
+
+===========RESULT===========
+Start Word: eat
+End Word: let
+Algorithm: A*
+Runtime: 0.577ms
+Visited Nodes: 21
+Path:
+1. eat
+2. lat
+3. let
+
+

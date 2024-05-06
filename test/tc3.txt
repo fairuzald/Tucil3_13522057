@@ -1,0 +1,43 @@
+
+===========RESULT===========
+Start Word: green
+End Word: black
+Algorithm: Uniform Cost Search
+Runtime: 40.6391ms
+Visited Nodes: 2252
+Path:
+1. green
+2. grees
+3. brees
+4. braes
+5. brans
+6. brank
+7. blank
+8. black
+
+
+===========RESULT===========
+Start Word: green
+End Word: black
+Algorithm: Greedy Best First Search
+Runtime: 0.5736ms
+Visited Nodes: 13
+Path: 
+Not found
+
+
+===========RESULT===========
+Start Word: green
+End Word: black
+Algorithm: A*
+Runtime: 11.0021ms
+Visited Nodes: 632
+Path:
+1. green
+2. grees
+3. brees
+4. braes
+5. brans
+6. brank
+7. blank
+8. black

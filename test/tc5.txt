@@ -1,0 +1,41 @@
+
+===========RESULT===========
+Start Word: four
+End Word: nine
+Algorithm: Uniform Cost Search
+Runtime: 44.7925ms
+Visited Nodes: 3262
+Path:
+1. four
+2. dour
+3. dorr
+4. dore
+5. dire
+6. dine
+7. nine
+
+
+===========RESULT===========
+Start Word: four
+End Word: nine
+Algorithm: Greedy Best First Search
+Runtime: 0.3691ms
+Visited Nodes: 3
+Path:
+Not found
+
+
+===========RESULT===========
+Start Word: four
+End Word: nine
+Algorithm: A*
+Runtime: 15.0747ms
+Visited Nodes: 982
+Path:
+1. four
+2. tour
+3. torr
+4. tore
+5. tone
+6. none
+7. nine

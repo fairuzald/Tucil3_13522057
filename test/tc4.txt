@@ -1,0 +1,86 @@
+
+===========RESULT===========
+Start Word: waiting
+End Word: unbaked
+Algorithm: Uniform Cost Search
+Runtime: 177.0891ms
+Visited Nodes: 7254
+Path:
+1. waiting
+2. wairing
+3. warring
+4. parring
+5. parking
+6. perking
+7. jerking
+8. jerkins
+9. jerkies
+10. jerkier
+11. perkier
+12. peakier
+13. beakier
+14. brakier
+15. brasier
+16. brasher
+17. brashes
+18. brasses
+19. trasses
+20. tresses
+21. cresses
+22. creases
+23. ureases
+24. uneases
+25. uncases
+26. uncased
+27. uncaked
+28. unbaked
+
+
+===========RESULT===========
+Start Word: waiting
+End Word: unbaked
+Algorithm: Greedy Best First Search
+Runtime: 0.2279ms
+Visited Nodes: 3
+Path:
+Not found
+
+
+===========RESULT===========
+Start Word: waiting
+End Word: unbaked
+Algorithm: A*
+Runtime: 171.6336ms
+Visited Nodes: 6997
+Path:
+1. waiting
+2. wairing
+3. pairing
+4. parring
+5. parking
+6. perking
+7. jerking
+8. jerkins
+9. jerkies
+10. jerkier
+11. perkier
+12. peakier
+13. beakier
+14. brakier
+15. brasier
+16. brasher
+17. brashes
+18. brasses
+19. trasses
+20. tresses
+21. cresses
+22. creases
+23. ureases
+24. uneases
+25. uncases
+26. uncased
+27. uncaked
+28. unbaked
+
+
+

@@ -1,0 +1,35 @@
+
+===========RESULT===========
+Start Word: east
+End Word: west
+Algorithm: Uniform Cost Search
+Runtime: 1.1045ms
+Visited Nodes: 83
+Path:
+1. east
+2. wast
+3. west
+
+
+===========RESULT===========
+Start Word: east
+End Word: west
+Algorithm: Greedy Best First Search
+Runtime: 0.0961ms
+Visited Nodes: 3
+Path:
+1. east
+2. wast
+3. west
+
+
+===========RESULT===========
+Start Word: east
+End Word: west
+Algorithm: A*
+Runtime: 0.2574ms
+Visited Nodes: 16
+Path:
+1. east
+2. wast
+3. west

@@ -84,7 +84,7 @@ export default function Home() {
 
   // FUnction to save the result to a text file
   const onSave = async () => {
-    if (path.length === 0 || !startWord || !endWord || runtime === 0 || count === 0 || !algorithm) {
+    if (!selectedAlgorithm || runtime === 0 || count === 0 || !selectedStartWord || !selectedEndWord) {
       alert("Unable to save. Please solve the problem first.");
       return;
     }
@@ -105,7 +105,7 @@ Algorithm: ${selectedAlgorithm}
 Runtime: ${runtime}ms
 Visited Nodes: ${count}
 Path:
-${path.map((word, index) => `${index + 1}. ${word}`).join("\n")}\n`;
+${path.length > 0 ? path.map((word, index) => `${index + 1}. ${word}`).join("\n") : "Not found solution"}\n`;
 
     // Buat objek blob dari konten teks
     const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
@@ -198,7 +198,7 @@ ${path.map((word, index) => `${index + 1}. ${word}`).join("\n")}\n`;
       </section>
 
       {/* Result */}
-      {(path && path.length > 0 || selectedAlgorithm==="Greedy Best First Search") && selectedAlgorithm && selectedEndWord && selectedStartWord && count > 0 && (
+      {selectedAlgorithm && selectedEndWord && selectedStartWord && count > 0 && (
         <section className="flex flex-col items-center justify-center gap-5">
           <h4 className="text-white text-center text-lg lg:text-2xl max-w-[1000px]">
             {isLoading ? "Loading..." : (
@@ -233,10 +233,7 @@ ${path.map((word, index) => `${index + 1}. ${word}`).join("\n")}\n`;
             )}
           </h4>
           {count > 0 && <GridSolver path={path} />}
-
-          {path.length > 0 && startWord && endWord && runtime > 0 && count > 0 && algorithm && (
-            <Button onClick={onSave}>Save</Button>
-          )}
+          <Button onClick={onSave}>Save</Button>
         </section>
       )}
     </main>

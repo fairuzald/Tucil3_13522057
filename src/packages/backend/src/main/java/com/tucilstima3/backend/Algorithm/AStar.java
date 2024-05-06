@@ -12,6 +12,7 @@ public class AStar implements PathFindingAlgorithm {
         HashSet<String> visited = new HashSet<>();
         PriorityQueue<Node> queue = new PriorityQueue<>();
         queue.add(new Node(startWord, Heuristic.getDistance(startWord, endWord)));
+        int weight = endWord.length();
 
         int counter = 0;
 
@@ -37,7 +38,7 @@ public class AStar implements PathFindingAlgorithm {
                         // Append the neighbor to the list if it is a valid word and has not been
                         if (dictionary.isValidWord(neighbor) && !visited.contains(neighbor)) {
                             visited.add(neighbor);
-                            int cost = currentNode.getCost() + endWord.length() +  Heuristic.getDistance(neighbor, endWord);
+                            int cost = currentNode.getCost() + weight +  Heuristic.getDistance(neighbor, endWord);
                             queue.add(new Node(neighbor, cost, currentNode));
                         }
                     }

@@ -1,0 +1,45 @@
+
+===========RESULT===========
+Start Word: chord
+End Word: piano
+Algorithm: Uniform Cost Search
+Runtime: 46.8712ms
+Visited Nodes: 2640
+Path:
+1. chord
+2. chard
+3. chars
+4. chaws
+5. claws
+6. clans
+7. plans
+8. pians
+9. piano
+
+
+===========RESULT===========
+Start Word: chord
+End Word: piano
+Algorithm: Greedy Best First Search
+Runtime: 0.1153ms
+Visited Nodes: 5
+Path:
+Not found
+
+
+===========RESULT===========
+Start Word: chord
+End Word: piano
+Algorithm: A*
+Runtime: 25.0267ms
+Visited Nodes: 1331
+Path:
+1. chord
+2. chard
+3. chars
+4. chaws
+5. claws
+6. clans
+7. plans
+8. pians
+9. piano
